@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\ContentController;
+use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +21,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/',[UserController::class,'master']);
+Route::get('/admin/master',[UserController::class,'master']);
+Route::get('/',[ContentController::class,'dashboard'])->name('admin.dashboard');
+Route::get('/product/list',[ProductController::class,'productlist'])->name('admin.product.list');
+Route::get('/category/list',[CategoryController::class,'categorylist'])->name('admin.category.list');
+Route::post('/add/category',[CategoryController::class,'add'])->name('admin.add.category');
