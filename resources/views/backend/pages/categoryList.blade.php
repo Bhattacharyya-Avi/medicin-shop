@@ -28,7 +28,12 @@
                             <td>{{$category->status}}</td>
                             <td>
                                 <a href="#"><i class="material-icons">edit</i></a>
-                                <a href="#"><i class="material-icons">delete</i></a>
+                                @if (!empty($category->deleted_at))
+                                    <a href="{{route('category.restore',$category->id)}}"><i class="material-icons">settings_backup_restore</i></a>
+                                
+                                @else
+                                <a href="{{route('product.category.delete',$category->id)}}"><i class="material-icons">delete</i></a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

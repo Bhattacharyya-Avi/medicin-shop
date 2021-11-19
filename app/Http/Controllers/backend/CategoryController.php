@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function categorylist(){
-        $categories= Category::where('status', 'active')->get();
+        $categories= Category::withTrashed()->get();
         
         return view('backend.pages.categoryList',compact('categories'));
     }
@@ -25,5 +25,26 @@ class CategoryController extends Controller
         ]);
         return redirect()->back();
 
+    }
+
+    public function delete($id){
+        $category = Category::find($id);
+        if($category){
+            $category->delete();
+            return redirect()->back();
+        }
+        return redirect()->back();
+
+    }
+
+    public function restore($id){
+        // dd($id);
+        $category = Category::withTrashed()->find($id);
+        // dd($category);
+        if($category){
+            $category->restore();
+            return redirect()->back();
+        }
+        return redirect()->back();
     }
 }
