@@ -15,9 +15,9 @@
                             <th>Image</th>
                             <th>Name</th>
                             <th>Category</th>
+                            <th>Company</th>
                             <th>price</th>
                             <th>Quantity</th>
-                            
                             <th>Description</th>
                             <th>Action</th>
                             
@@ -26,10 +26,11 @@
                     <tbody>
                         @foreach ($products as $product)
                             <td>
-                                <img style="width: 100px; " src="{{url('uploads/'.$product->image)}}" alt="product image">
+                                <img style="width: 100px; " src="{{url('/uploads/'.$product->image)}}" alt="product image">
                             </td>
                             <td>{{$product->name}}</td>
-                            <td>{{$product->category}}</td>
+                            <td>{{$product->category->name}}</td>
+                            <td>{{$product->company->name}}</td>
                             <td>{{$product->price}}</td>
                             <td>{{$product->quantity}}</td>
                             <td>{{$product->description}}</td>
@@ -88,11 +89,21 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">Product Company Name</label>
+                        <select name="company" class="form-control" id="exampleFormControlSelect1">
+                            <option>Select One Category</option>
+                            @foreach ($companies as $company)
+                                <option value="{{$company->id}}">{{$company->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="exampleFormControlSelect1">Product Category</label>
                         <select name="category" class="form-control" id="exampleFormControlSelect1">
                             <option>Select One Category</option>
                             @foreach ($category as $data)
-                                <option {{$data->id}}>{{$data->name}}</option>
+                                <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
                         </select>
                     </div>

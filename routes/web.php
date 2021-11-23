@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\frontend\SingleProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,11 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+// frontend
+
+Route::get('/frontend/master',[UserController::class,'master']);
+Route::get('/index',[IndexController::class,'index'])->name('index');
 
 // single product
 Route::get('/single/product',[SingleProductController::class,'view_product'])->name('view.single.product');
@@ -41,7 +47,7 @@ Route::post('/add/category',[CategoryController::class,'add'])->name('admin.add.
 Route::get('/delete/category{id}', [CategoryController::class,'delete'])->name('product.category.delete');
 Route::get('/category/restore/{id}',[CategoryController::class,'restore'])->name('category.restore');
 Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('admin.category.edit');
-Route::get('/category/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
+Route::put('/category/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
 
 //company
 Route::get('/company/list',[CompanyController::class,'companyList'])->name('company.list');

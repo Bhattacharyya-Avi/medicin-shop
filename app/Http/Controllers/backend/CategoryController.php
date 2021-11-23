@@ -47,4 +47,30 @@ class CategoryController extends Controller
         }
         return redirect()->back();
     }
+
+    public function edit($id){
+        // dd($id);
+        $category = Category::find($id);
+        if($category){
+            return view('backend.pages.category.edit-category',compact('category'));
+        }
+
+        return redirect()->back();
+
+    }
+
+    public function update(Request $request,$id){
+        // dd($request->all());
+        $category = Category::find($id);
+        if($category){
+            $category -> update([
+                'name'=>$request->name,
+                'description'=>$request->description,
+                'status'=>$request->status
+            ]);
+            return redirect()->route('admin.category.list');
+        }
+    }
+
+    
 }

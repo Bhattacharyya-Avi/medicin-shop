@@ -13,29 +13,53 @@
                 <form action="{{route('admin.product.update',$product->id)}}" method="post">
                     @method('put')
                     @csrf
+
+                    {{-- <div class="form-group">
+                        <label for="inputText3" class="col-form-label">Product image</label>
+                        <input type="file">
+                        <img style="width: 100px; " src="{{url('/uploads/'.$product->image)}}" alt="product image">
+
+                        <input value="{{$product->name}}" name="name" id="inputText3" type="text" class="form-control" placeholder="Company Name">
+                    </div> --}}
+
                     <div class="form-group">
                         <label for="inputText3" class="col-form-label">Product name</label>
                         <input value="{{$product->name}}" name="name" id="inputText3" type="text" class="form-control" placeholder="Company Name">
                     </div>
                     
                     <div class="form-group">
-                        <label for="inputEmail">Product category</label>
-                        <input value="{{$product->category}}" name="description" id="inputEmail" type="text" placeholder="Description" class="form-control">
+                        <label for="exampleFormControlSelect1">Product Company Name</label>
+                        <select name="company" class="form-control" id="exampleFormControlSelect1">
+                            <option>Select One Category</option>
+                            @foreach ($companies as $company)
+                                <option value="{{$company->id}}">{{$company->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Product category Name</label>
+                        <select name="category" class="form-control" id="exampleFormControlSelect1">
+                            <option>Select One Category</option>
+                            @foreach ($category as $data)
+                                <option value="{{$data->id}}">{{$data->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     
                     <div class="form-group">
                         <label for="inputText3" class="col-form-label">Product price</label>
-                        <input value="{{$product->price}}" name="contact" id="inputText3" type="text" class="form-control" placeholder="Company Name">
+                        <input value="{{$product->price}}" name="price" id="inputText3" type="text" class="form-control" placeholder="Company Name">
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEmail">Product quentity</label>
-                        <input value="{{$product->quantity}}" name="address" id="inputEmail" type="text" placeholder="quentity" class="form-control">
+                        <label for="inputEmail">Product quantity</label>
+                        <input value="{{$product->quantity}}" name="quantity" id="inputEmail" type="text" placeholder="quentity" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="inputEmail">Product description</label>
-                        <input value="{{$product->description}}" name="address" id="inputEmail" type="text" placeholder="Description" class="form-control">
+                        <input value="{{$product->description}}" name="description" id="inputEmail" type="text" placeholder="Description" class="form-control">
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Submit</button>

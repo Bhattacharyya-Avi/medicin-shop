@@ -27,7 +27,7 @@
                             <td>{{$category->description}}</td>
                             <td>{{$category->status}}</td>
                             <td>
-                                <a href="#"><i class="material-icons">edit</i></a>
+                                <a href="{{route('admin.category.edit',$category->id)}}"><i class="material-icons">edit</i></a>
                                 @if (!empty($category->deleted_at))
                                     <a href="{{route('category.restore',$category->id)}}"><i class="material-icons">settings_backup_restore</i></a>
                                 
@@ -88,8 +88,8 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Status</label>
                         <select name="status" class="form-control" id="exampleFormControlSelect1">
-                            <option>Active</option>
-                            <option>Deactive</option>
+                            <option value="1">Active</option>
+                            <option value="0">Deactive</option>
                         </select>
                     </div>
                     {{-- <div class="form-group">
