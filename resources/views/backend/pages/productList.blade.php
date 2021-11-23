@@ -34,7 +34,7 @@
                             <td>{{$product->quantity}}</td>
                             <td>{{$product->description}}</td>
                             <td>
-                                <a href="{{route('admin.product.edit',$product->id)}}"><i class="material-icons">remove_red_eye</i></a>
+                                {{-- <a href="{{route('admin.product.edit',$product->id)}}"><i class="material-icons">remove_red_eye</i></a> --}}
                                 <a href="{{route('admin.product.edit',$product->id)}}"><i class="material-icons">edit</i></a>
                                 @if (!empty($product->deleted_at))
                                     <a href="{{route('product.restore',$product->id)}}"><i class="material-icons">settings_backup_restore</i></a>

@@ -59,7 +59,19 @@ class ProductController extends Controller
     }
 
     public function edit($id){
-        dd($id);
+        // dd($id);
+        $product = Product::find($id);
+        if ($product) {
+            return view('backend.pages.product.product-edit',compact('product'));
+        }
     }
+
+    // public function update($id){
+    //     dd($id);
+    //     $product = Product::find($id);
+    //     // if ($product) {
+            
+    //     // }
+    // }
     
 }
