@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\frontend\IndexController;
+use App\Http\Controllers\frontend\ProductController as FrontendProduct;
 use App\Http\Controllers\frontend\SingleProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/master',[IndexController::class,'master']);
 Route::get('/home',[IndexController::class,'index2'])->name('index2');
-
+Route::get('/single/product/{id}',[FrontendProduct::class,'singleProduct'])->name('single.product');
 
 // Route::get('/frontend/master',[UserController::class,'master']);
 // Route::get('/index',[IndexController::class,'index'])->name('index');

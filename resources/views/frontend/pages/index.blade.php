@@ -41,87 +41,50 @@
                     <h2 class="section-title">Latest Products</h2>
                     <div class="product-carousel">
                         @foreach ($products as $product)
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img width="200px" src="{{url('/uploads/'.$product->image)}}" alt="" pagespeed_url_hash="504348729" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.htm" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
+                        <div class="single-product" style="width: 250px; height:300px; margin-right: 20px;!important;" >
+                            <div class="product-f-image" style="width: 200px !important;">
+                                <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script>
+                                <img width="120px !important;"  src="{{url('/uploads/'.$product->image)}}" alt="product image" >
                             </div>
+
+                            <div class="product-hover">
+                                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                <a href="{{route('single.product',$product->id)}}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                            </div>
+
                             <h2><a href="single-product.htm">{{$product->name}}</a></h2>
-                            <div class="product-carousel-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
+                            <div class="product-carousel-price " style="  margin-left: auto; margin-right: auto; !important">
+                                <p>Price {{$product->price}}</p>
+                                <p>Quantity {{$product->quantity}}</p>
+                                
                             </div>
                         </div> 
                         @endforeach
-                        
-                        {{-- <div class="single-product">
-                            <div class="product-f-image">
-                                <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/product-2.jpg" alt="" pagespeed_url_hash="798848650" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.htm" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-                            <h2>Nokia Lumia 1320</h2>
-                            <div class="product-carousel-price">
-                                <ins>$899.00</ins> <del>$999.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/product-3.jpg" alt="" pagespeed_url_hash="1093348571" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.htm" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-                            <h2>LG Leon 2015</h2>
-                            <div class="product-carousel-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/product-4.jpg" alt="" pagespeed_url_hash="1387848492" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.htm" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-                            <h2><a href="single-product.htm">Sony microsoft</a></h2>
-                            <div class="product-carousel-price">
-                                <ins>$200.00</ins> <del>$225.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/product-5.jpg" alt="" pagespeed_url_hash="1682348413" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.htm" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-                            <h2>iPhone 6</h2>
-                            <div class="product-carousel-price">
-                                <ins>$1200.00</ins> <del>$1355.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/product-6.jpg" alt="" pagespeed_url_hash="1976848334" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.htm" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-                            <h2><a href="single-product.htm">Samsung gallaxy note 4</a></h2>
-                            <div class="product-carousel-price">
-                                <ins>$400.00</ins>
-                            </div>
-                        </div> --}}
                     </div>
+                    <br>
+                    <div class="product-carousel">
+                        @foreach ($products as $product)
+                        <div class="single-product" style="width: 250px; height:300px; margin-right: 20px;!important;" >
+                            <div class="product-f-image" style="width: 200px !important;">
+                                <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script>
+                                <img width="120px !important;"  src="{{url('/uploads/'.$product->image)}}" alt="product image" >
+                            </div>
+
+                            <div class="product-hover">
+                                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                            </div>
+
+                            <h2><a href="single-product.htm">{{$product->name}}</a></h2>
+                            <div class="product-carousel-price " style="  margin-left: auto; margin-right: auto; !important">
+                                <p>Price {{$product->price}}</p>
+                                <p>Quantity {{$product->quantity}}</p>
+                                
+                            </div>
+                        </div> 
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
         </div>

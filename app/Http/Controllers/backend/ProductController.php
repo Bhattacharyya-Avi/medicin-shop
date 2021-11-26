@@ -12,6 +12,7 @@ class ProductController extends Controller
 {
     public function productlist(){
         $category=Category::where('status','Active')->get();
+        // dd($category);
         $companies = Company::where('status','Active')->get();
         // dd($companies);
         $products= Product::withTrashed()-> with('category','company')->get();
