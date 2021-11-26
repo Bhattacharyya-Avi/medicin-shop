@@ -25,8 +25,9 @@
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
+                        <tr>
                             <td>
-                                <img style="width: 100px; " src="{{url('/uploads/'.$product->image)}}" alt="product image">
+                                <img style="width: 100px; height: 50px; " src="{{url('/uploads/'.$product->image)}}" alt="product image">
                             </td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->category->name}}</td>
@@ -46,6 +47,8 @@
 
                                 
                             </td>
+                        </tr>
+                            
                         @endforeach
                     </tbody>
                     {{-- <tfoot>

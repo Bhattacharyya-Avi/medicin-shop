@@ -26,8 +26,13 @@ use Illuminate\Support\Facades\Route;
 
 // frontend
 
-Route::get('/frontend/master',[UserController::class,'master']);
-Route::get('/index',[IndexController::class,'index'])->name('index');
+Route::get('/master',[IndexController::class,'master']);
+Route::get('/home',[IndexController::class,'index2'])->name('index2');
+
+
+// Route::get('/frontend/master',[UserController::class,'master']);
+// Route::get('/index',[IndexController::class,'index'])->name('index');
+// Route::get('/single/product/{id}',[SingleProductController::class,'singleProduct'])->name('frontend.single.product');
 
 // single product
 Route::get('/single/product',[SingleProductController::class,'view_product'])->name('view.single.product');

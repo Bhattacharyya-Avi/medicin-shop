@@ -106,8 +106,8 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Status</label>
                         <select name="status" class="form-control" id="exampleFormControlSelect1">
-                            <option value="1">Sallable</option>
-                            <option value="0">Not-Sallable</option>
+                            <option value="Active">Active</option>
+                            <option value="Deactive">Deactive</option>
                         </select>
                     </div>
                     {{-- <div class="form-group">

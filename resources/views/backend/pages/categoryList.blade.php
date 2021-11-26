@@ -85,13 +85,13 @@
                     </div>
 
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="exampleFormControlSelect1">Status</label>
                         <select name="status" class="form-control" id="exampleFormControlSelect1">
-                            <option value="1">Active</option>
-                            <option value="0">Deactive</option>
+                            <option value="Active">Active</option>
+                            <option value="Deactive">Deactive</option>
                         </select>
-                    </div>
+                    </div> --}}
                     {{-- <div class="form-group">
                         <label for="exampleFormControlSelect2">Example multiple select</label>
                         <select multiple class="form-control" id="exampleFormControlSelect2">

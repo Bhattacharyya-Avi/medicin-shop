@@ -21,7 +21,7 @@ class CategoryController extends Controller
         Category::create([
             'name'=>$request->name,
             'description'=>$request->description,
-            'status'=>$request->status
+            // 'status'=>$request->status
         ]);
         return redirect()->back();
 

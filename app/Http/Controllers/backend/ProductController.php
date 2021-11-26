@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function productlist(){
-        $category=Category::where('status','active')->get();
-        $companies = Company::where('status','1')->get();
+        $category=Category::where('status','Active')->get();
+        $companies = Company::where('status','Active')->get();
         // dd($companies);
         $products= Product::withTrashed()-> with('category','company')->get();
         // dd($products);
@@ -22,6 +22,16 @@ class ProductController extends Controller
     public function addproduct(Request $request){
         // dd($request->all());
         // dd(date('Ymdhms'));
+
+        $request->validate([
+            'name'=>'required',
+            'category'=>'required',
+            'company'=>'required',
+            'price'=>'required',
+            'quantity'=>'required',
+            'description'=>'required'
+        ]);
+
         $filename='';
         if($request->hasFile('image')){
             $file = $request->file('image');
