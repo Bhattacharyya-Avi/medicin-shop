@@ -27,7 +27,7 @@
                         @foreach ($products as $product)
                         <tr>
                             <td>
-                                <img style="width: 100px; height: 50px; " src="{{url('/uploads/'.$product->image)}}" alt="product image">
+                                <img width="100px" src="{{url('/uploads/'.$product->image)}}" alt="product image">
                             </td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->category->name}}</td>
@@ -94,7 +94,7 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Product Company Name</label>
                         <select name="company" class="form-control" id="exampleFormControlSelect1">
-                            <option>Select One Category</option>
+                            <option>Select One Company</option>
                             @foreach ($companies as $company)
                                 <option value="{{$company->id}}">{{$company->name}}</option>
                             @endforeach
