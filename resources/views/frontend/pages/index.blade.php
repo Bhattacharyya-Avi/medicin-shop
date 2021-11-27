@@ -42,7 +42,7 @@
                     <div class="product-carousel">
                         @foreach ($products as $product)
                         <div class="single-product" style="width: 250px; height:300px; margin-right: 20px;!important;" >
-                            <div class="product-f-image" style="width: 200px !important;">
+                            <div class="product-f-image" style="width: 212px !important;">
                                 <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script>
                                 <img width="120px !important;"  src="{{url('/uploads/'.$product->image)}}" alt="product image" >
                             </div>
@@ -65,14 +65,14 @@
                     <div class="product-carousel">
                         @foreach ($products as $product)
                         <div class="single-product" style="width: 250px; height:300px; margin-right: 20px;!important;" >
-                            <div class="product-f-image" style="width: 200px !important;">
+                            <div class="product-f-image" style="width: 212px !important;">
                                 <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script>
                                 <img width="120px !important;"  src="{{url('/uploads/'.$product->image)}}" alt="product image" >
                             </div>
 
                             <div class="product-hover">
-                                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                <a href="{{route('product.cart')}}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                <a href="{{route('single.product',$product->id)}}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                             </div>
 
                             <h2><a href="single-product.htm">{{$product->name}}</a></h2>
