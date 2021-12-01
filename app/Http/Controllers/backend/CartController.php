@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -50,15 +51,31 @@ class CartController extends Controller
         // dd($request->all());
         $id= $request->input('cart_id');
         $cart=session()->get('cart');
-        // $product_quantity = Product::where('id',$cart[$id])->get();
-        // dd($product_quantity);
+        $product_quantity = Product::find($id);
+        // dd($product_quantity->quantity);
+        // dd($request->quantity);
+        if ($request->quantity > $product_quantity->quantity) {
+            return redirect()->route('product.cart');
+        }
+        else {
+            $cart[$id]['quantity'] = $request->input('quantity');
+            // dd($cart[$id]['quantity']);
+            $cart[$id]['total_price'] = $cart[$id]['quantity'] * $cart[$id]['price'];
+            // dd($cart);
+            session()->put('cart', $cart);
+            return redirect()->route('product.cart');
+        }
 
-        $cart[$id]['quantity'] = $request->input('quantity');
-        // dd($cart[$id]['quantity']);
-        $cart[$id]['total_price'] = $cart[$id]['quantity'] * $cart[$id]['price'];
+        
+    }
+
+    public function cartDelete($id){
+        // dd($id);
+        $cart = session()->get('cart');
         // dd($cart);
-        session()->put('cart', $cart);
-        return redirect()->route('product.cart');
+        unset($cart[$id]);
+        session()->put('cart',$cart);
+       return redirect()->route('product.cart');
     }
 
     public function cartDestroy(){

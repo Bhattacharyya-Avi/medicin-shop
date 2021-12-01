@@ -39,6 +39,7 @@ Route::get('/product/cart',[CartController::class,'cart'])->name('product.cart')
 Route::get('/product/add/cart/{id}',[CartController::class,'addToCart'])->name('add.product.to.cart');
 Route::get('/cart/destroy',[CartController::class,'cartDestroy'])->name('cart.distroy');
 Route::post('/update/cart',[CartController::class,'cartUpdate'])->name('update.cart');
+Route::get('/cart/product/delete/{id}',[CartController::class,'cartDelete'])->name('Carte.delete');
 
 // Route::get('/frontend/master',[UserController::class,'master']);
 // Route::get('/index',[IndexController::class,'index'])->name('index');
