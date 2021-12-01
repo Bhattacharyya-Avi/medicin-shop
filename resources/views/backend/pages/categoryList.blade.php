@@ -1,9 +1,11 @@
 @extends('backend.master')
 
 @section('contents')
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<hr>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style=" margin-left: 15px; !important;">
     Add Product Category
 </button>
+<br> <br>
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="card">
         <h5 class="card-header">Product Category list</h5>

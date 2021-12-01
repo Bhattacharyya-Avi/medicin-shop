@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\CartController;
+use App\Http\Controllers\backend\StockController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\frontend\ProductController as FrontendProduct;
@@ -29,10 +30,15 @@ use Illuminate\Support\Facades\Route;
 // frontend
 
 Route::get('/master',[IndexController::class,'master']);
-Route::get('/home',[IndexController::class,'index2'])->name('index2');
+Route::get('/home',[IndexController::class,'index2'])->name('home');
 Route::get('/single/product/{id}',[FrontendProduct::class,'singleProduct'])->name('single.product');
 // Route::post('/product/add/cart/{id}',[FrontendProduct::class,'addtocart'])->name('product.add.cart');
+
+//cart
 Route::get('/product/cart',[CartController::class,'cart'])->name('product.cart');
+Route::get('/product/add/cart/{id}',[CartController::class,'addToCart'])->name('add.product.to.cart');
+Route::get('/cart/destroy',[CartController::class,'cartDestroy'])->name('cart.distroy');
+Route::post('/update/cart',[CartController::class,'cartUpdate'])->name('update.cart');
 
 // Route::get('/frontend/master',[UserController::class,'master']);
 // Route::get('/index',[IndexController::class,'index'])->name('index');
@@ -41,6 +47,8 @@ Route::get('/product/cart',[CartController::class,'cart'])->name('product.cart')
 // single product
 Route::get('/single/product',[SingleProductController::class,'view_product'])->name('view.single.product');
 
+
+// backend
 Route::get('/admin/master',[UserController::class,'master']);
 Route::get('/',[ContentController::class,'dashboard'])->name('admin.dashboard');
 // product
@@ -65,3 +73,7 @@ Route::get('/company/edit{id}',[CompanyController::class,'companyEdit'])->name('
 Route::put('/company/update{id}',[CompanyController::class,'companyUpdate'])->name('company.update');
 Route::get('/company/delete/{id}',[CompanyController::class,'companyDelete'])->name('company.delete');
 Route::get('/company/restore/{id}',[CompanyController::class,'companyRestore'])->name('company.restore');
+
+// stock
+Route::get('/categoty',[StockController::class,'categoPryList'])->name('category.product');
+Route::get('category/details/{id}',[StockController::class,'categoryDetails'])->name('category.details');

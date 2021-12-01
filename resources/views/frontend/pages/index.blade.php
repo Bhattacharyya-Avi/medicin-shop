@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="product-hover">
-                                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                <a href="{{route('add.product.to.cart',$product->id)}}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                 <a href="{{route('single.product',$product->id)}}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                             </div>
 
@@ -71,7 +71,7 @@
                             </div>
 
                             <div class="product-hover">
-                                <a href="{{route('product.cart')}}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                <a href="{{route('add.product.to.cart',$product->id)}}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                 <a href="{{route('single.product',$product->id)}}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                             </div>
 

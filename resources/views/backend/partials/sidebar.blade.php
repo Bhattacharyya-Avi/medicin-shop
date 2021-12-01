@@ -84,7 +84,7 @@
                                             <a class="nav-link" href="{{route('admin.product.list')}}">Product list</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/carousel.html">Carousel</a>
+                                            <a class="nav-link" href="{{route('category.product')}}">stock</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/listgroup.html">List Group</a>

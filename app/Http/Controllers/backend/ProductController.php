@@ -30,7 +30,6 @@ class ProductController extends Controller
             'company'=>'required',
             'price'=>'required',
             'quantity'=>'required',
-            'description'=>'required'
         ]);
 
         $filename='';
