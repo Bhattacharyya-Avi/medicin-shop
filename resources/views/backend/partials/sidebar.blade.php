@@ -131,11 +131,11 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-4" aria-controls="submenu-4"><i
-                                        class="fab fa-fw fa-wpforms"></i>Forms</a>
+                                        class="fab fa-fw fa-wpforms"></i>Website Contents</a>
                                 <div id="submenu-4" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/form-elements.html">Form Elements</a>
+                                            <a class="nav-link" href="{{route('admin.slider.content')}}">Slider Contents</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/form-validation.html">Parsely

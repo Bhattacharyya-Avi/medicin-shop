@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\CartController;
+use App\Http\Controllers\backend\FrontendController;
 use App\Http\Controllers\backend\StockController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\frontend\IndexController;
@@ -30,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 // frontend
 
 Route::get('/master',[IndexController::class,'master']);
+// Route::get('/frontent/slider',[IndexController::class,'slider']);
+
 Route::get('/home',[IndexController::class,'index2'])->name('home');
 Route::get('/single/product/{id}',[FrontendProduct::class,'singleProduct'])->name('single.product');
 // Route::post('/product/add/cart/{id}',[FrontendProduct::class,'addtocart'])->name('product.add.cart');
@@ -78,3 +81,7 @@ Route::get('/company/restore/{id}',[CompanyController::class,'companyRestore'])-
 // stock
 Route::get('/categoty',[StockController::class,'categoPryList'])->name('category.product');
 Route::get('category/details/{id}',[StockController::class,'categoryDetails'])->name('category.details');
+
+//forntend control 
+Route::get('/slider/contents',[FrontendController::class,'form'])->name('admin.slider.content');
+Route::post('/slider/contents/add',[FrontendController::class,'contentsAdd'])->name('admin.slider.contents.add');

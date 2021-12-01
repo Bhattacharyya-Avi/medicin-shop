@@ -2,17 +2,20 @@
                 
                 <div class="block-slider block-slider4">
                     <ul class="" id="bxslider-home4">
-                        <li>
-                            <script src="{{url('/frontend/js/rocket-loader.min.js')}}" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/h4-slide.png" alt="Slide" pagespeed_url_hash="3541382440" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                            <div class="caption-group">
-                                <h2 class="caption title">
-                                    iPhone <span class="primary">6 <strong>Plus</strong></span>
-                                </h2>
-                                <h4 class="caption subtitle">Dual SIM</h4>
-                                <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-                            </div>
-                        </li>
-                        <li><script src="{{url('/frontend/js/rocket-loader.min.js')}}" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/h4-slide2.png" alt="Slide" pagespeed_url_hash="1094292692" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                        {{-- @foreach ($sliders as $slider) --}}
+                            <li>
+                                <script src="{{url('/frontend/js/rocket-loader.min.js')}}" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="" alt="Slide" pagespeed_url_hash="3541382440" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                <div class="caption-group">
+                                    <h2 class="caption title">
+                                        iPhone <span class="primary">6 <strong>Plus</strong></span>
+                                    </h2>
+                                    <h4 class="caption subtitle">Dual SIM</h4>
+                                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                                </div>
+                            </li>
+                        {{-- @endforeach --}}
+                        
+                        {{-- <li><script src="{{url('/frontend/js/rocket-loader.min.js')}}" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/h4-slide2.png" alt="Slide" pagespeed_url_hash="1094292692" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                             <div class="caption-group">
                                 <h2 class="caption title">
                                     by one, get one <span class="primary">50% <strong>off</strong></span>
@@ -38,7 +41,7 @@
                                 <h4 class="caption subtitle">& Phone</h4>
                                 <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 
