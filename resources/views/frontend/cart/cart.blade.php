@@ -45,7 +45,7 @@
                                             @foreach($carts as $key=>$cart)
                                                 <tr class="cart_item">
                                                     <td class="product-remove">
-                                                        <a title="Remove this item" class="remove" href="#">×</a>
+                                                        <a title="Remove this item" class="remove" href="{{route('Carte.delete',$key)}}">×</a>
                                                     </td>
                                                     <td class="product-thumbnail">
                                                         <a href="#"><script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="831c8b05fb7a8146188970c0-|49"></script><img width="145" height="145" alt="Product image" class="shop_thumbnail" src="{{url('/uploads/'.$cart['image'])}}" pagespeed_url_hash="2028383707" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
@@ -82,7 +82,12 @@
                                                 </tr> 
                                             @endforeach
                                             @else
-                                            <td><h4>cart is empty</h4></td>
+                                            <tr>
+                                                <td>
+                                                    <h4>cart is empty</h4>
+                                                </td>
+                                            </tr>
+                                            
                                             
                                         @endif
                                         
