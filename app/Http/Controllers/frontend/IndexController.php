@@ -12,8 +12,11 @@ class IndexController extends Controller
 {
 
     public function master(){
-        $products = Product::get();
-        return view('frontend.master2',compact('products','sliders'));
+        // $products = Product::get();
+        // dd($products);
+        $sliders = Slider::all();
+        // dd($sliders);
+        return view('frontend.master2',compact('sliders'));
     }
     public function index(){
         $products = Product::get();

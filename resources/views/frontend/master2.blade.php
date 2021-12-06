@@ -48,7 +48,7 @@
             </div> 
             @include('frontend.partials.sidebar2')
             
-
+            
             @include('frontend.partials.slider2')
             
             @yield('contents')
@@ -73,5 +73,21 @@
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10146041-25" type="7a1690ed6dd246805fda4dd0-text/javascript"></script>
             <script type="7a1690ed6dd246805fda4dd0-text/javascript">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
                 gtag('js',new Date());gtag('config','UA-10146041-25');</script>
-                <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49" defer=""></script></body>
-                </html>
+                <script src="https://freshdesignweb.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7a1690ed6dd246805fda4dd0-|49" defer=""></script>
+                
+                {{-- ssl start--}}
+                <script>
+                    (function (window, document) {
+                        var loader = function () {
+                            var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+                            script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+                            tag.parentNode.insertBefore(script, tag);
+                        };
+                        
+                        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+                    })(window, document);
+                </script>
+                {{-- ssl end --}}
+                
+            </body>
+            </html>

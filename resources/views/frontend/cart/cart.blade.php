@@ -99,8 +99,8 @@
                                                     <input type="text" placeholder="Coupon code" value="enter code" id="coupon_code" class="input-text" name="coupon_code">
                                                     <input type="submit" value="Apply Coupon" name="apply_coupon" class="button">
                                                 </div>
-                                                <a href="{{route('cart.distroy')}}" class="btn btn-danger">Delete Cart</a>
-                                                <a href="#" name="proceed" class="btn btn-primary">Checkout</a>
+                                                <a href="{{route('cart.distroy')}}" class="btn btn-danger">Clear Cart</a>
+                                                <a href="{{route('frontend.pay')}}" name="proceed" class="btn btn-primary">Checkout</a>
                                                 <a href="{{route('home')}}" class="btn btn-primary">Continue Shopping</a>
                                             </td>
                                         </tr>
