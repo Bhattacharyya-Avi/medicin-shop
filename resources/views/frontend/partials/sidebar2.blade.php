@@ -19,7 +19,7 @@
                                 <li><a href="#">Category</a></li>
                                 <li><a href="#">Others</a></li>
                                 <li><a href="#">Contact</a></li>
-                                <li><a href="#">Login</a></li>
+                                <li><a href="{{route('user.login')}}">Login</a></li>
                             </ul>
                         </div>
                     </div>

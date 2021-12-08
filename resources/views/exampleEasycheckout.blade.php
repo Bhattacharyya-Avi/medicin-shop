@@ -41,37 +41,32 @@
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
+                {{-- <span class="badge badge-secondary badge-pill">3</span> --}}
             </h4>
+            @php
+                $total = 0;
+            @endphp
+            {{-- @dd($cart) --}}
             <ul class="list-group mb-3">
-                {{-- @foreach ($cart as $item)
+                @foreach ($cart as $item)
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">{{$item->name}}</h6>
-                        <small class="text-muted">{{$item->product_id}}</small>
+                        <img width="80px" src="{{url('/uploads/'.$item['image'])}}" alt="">
+                        <h6 class="my-0">{{$item['name']}}</h6>
+                        <small class="text-muted">{{$item['product_id']}}</small>
                     </div>
-                    <span class="text-muted">{{$item->price}}</span>
+                    <span class="text-muted">Price {{$item['price'] }} X {{ $item['quantity'] }}</span>
+                    
+                    <span style="margin-top: 50px" class="text-muted">total {{$item['total_price'] }}</span>
                 </li>
-                @endforeach --}}
-                
-
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">50</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">150</span>
-                </li>
+                @php
+                    $item_total = $item['total_price'];
+                    $total = $total + $item_total;
+                @endphp
+                @endforeach
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (BDT)</span>
-                    <strong>1200TK</strong>
+                    <strong>{{$total}} TK</strong>
                 </li>
             </ul>
         </div>
@@ -169,13 +164,13 @@
                 </div>
                 <hr class="mb-4">
                 {{-- <button type="submit" class="btn btn-primary btn-lg btn-block" id="sslczPayBtn" 
-                        {{-- token="if you have any token validation" 
+                        token="if you have any token validation" 
                         postdata="your javascript arrays or objects which requires in backend"
                         order="If you already have the transaction generated for current order"
                         endpoint="{{ url('/pay-via-ajax') }}"
                         > Pay Now
                 </button> --}}
-
+                {{-- for hosted payment --}}
                 <button class="btn btn-info" type="submit">PayNow </button>
             </form>
         </div>
@@ -200,7 +195,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-{{-- 
+
 <!-- If you want to use the popup integration, -->
 <script>
     var obj = {};
@@ -222,5 +217,5 @@
 
         window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
     })(window, document);
-</script> --}}
+</script>
 </html>
