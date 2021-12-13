@@ -4,7 +4,19 @@
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
-            <form action="{{route('user.registration.post')}}" method="POST">
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                 <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul> 
+            </div>
+                
+            @endif
+
+            <form action="{{route('user.registration.post')}}" method="POST" enctype="multipart/form-data"> 
                 @csrf
 
                 <div class="form-group">

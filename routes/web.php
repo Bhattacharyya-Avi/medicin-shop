@@ -34,6 +34,8 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
 
 // frontend
+    Route::get('/',[IndexController::class,'index2'])->name('home');
+
 Route::group(['prefix'=>'user'],function(){
     // Route::get('/master',[IndexController::class,'master']);
     // Route::get('/frontent/slider',[IndexController::class,'slider']);
@@ -43,8 +45,8 @@ Route::group(['prefix'=>'user'],function(){
     Route::get('/registration',[LoginController::class,'registration'])->name('user.registration');
     Route::post('/registration/post',[LoginController::class,'registrationPost'])->name('user.registration.post');
     Route::get('/activate/{token}',[LoginController::class,'activate'])->name('user.activate');
+    Route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout');
 
-    Route::get('/',[IndexController::class,'index2'])->name('home');
     Route::get('/single/product/{id}',[FrontendProduct::class,'singleProduct'])->name('single.product');
     // Route::post('/product/add/cart/{id}',[FrontendProduct::class,'addtocart'])->name('product.add.cart');
 

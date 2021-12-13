@@ -4,7 +4,7 @@
     <div class="promo-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="single-promo promo1">
                     <i class="fa fa-refresh"></i>
@@ -29,7 +29,7 @@
                     <p>New products</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div> 
 <div class="maincontent-area">
@@ -58,6 +58,7 @@
                                 <p>Quantity {{$product->quantity}}</p>
                                 
                             </div>
+                            
                         </div> 
                         @endforeach
                     </div>
