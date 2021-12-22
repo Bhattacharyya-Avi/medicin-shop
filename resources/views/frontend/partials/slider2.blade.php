@@ -2,18 +2,18 @@
                 
                 <div class="block-slider block-slider4">
                     <ul class="" id="bxslider-home4">
-                        {{-- @foreach ($sliders as $slider) --}}
+                        @foreach ($products as $slider)
                             <li>
-                                <script src="{{url('/frontend/js/rocket-loader.min.js')}}" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="" alt="Slide" pagespeed_url_hash="3541382440" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                <script src="{{url('/frontend/js/rocket-loader.min.js')}}" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="{{url('/uploads/'.$slider->image)}}" alt="Slide" pagespeed_url_hash="3541382440" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                                 <div class="caption-group">
                                     <h2 class="caption title">
-                                        iPhone <span class="primary">6 <strong>Plus</strong></span>
+                                        Product <span class="primary">{{$slider->details}} <strong>details</strong></span>
                                     </h2>
-                                    <h4 class="caption subtitle">Dual SIM</h4>
+                                    <h4 class="caption subtitle">{{$slider->details}}</h4>
                                     <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
                                 </div>
                             </li>
-                        {{-- @endforeach --}}
+                        @endforeach
                         
                         {{-- <li><script src="{{url('/frontend/js/rocket-loader.min.js')}}" data-cf-settings="7a1690ed6dd246805fda4dd0-|49"></script><img src="img/h4-slide2.png" alt="Slide" pagespeed_url_hash="1094292692" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                             <div class="caption-group">

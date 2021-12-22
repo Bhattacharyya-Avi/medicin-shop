@@ -26,7 +26,9 @@ class IndexController extends Controller
 
     public function index2(){
         $products = Product::get();
-        return view('frontend.pages.index',compact('products'));
+        $sliders = Slider::all();
+        // dd($sliders);
+        return view('frontend.pages.index',compact('products','sliders'));
     }
 
     // public function slider(){

@@ -35,16 +35,17 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 // frontend
     Route::get('/',[IndexController::class,'index2'])->name('home');
-
-Route::group(['prefix'=>'user'],function(){
-    // Route::get('/master',[IndexController::class,'master']);
-    // Route::get('/frontent/slider',[IndexController::class,'slider']);
-
     Route::get('/login',[LoginController::class,'login'])->name('user.login');
     Route::post('/login/post',[LoginController::class,'loginPost'])->name('user.login.post');
     Route::get('/registration',[LoginController::class,'registration'])->name('user.registration');
     Route::post('/registration/post',[LoginController::class,'registrationPost'])->name('user.registration.post');
     Route::get('/activate/{token}',[LoginController::class,'activate'])->name('user.activate');
+Route::group(['prefix'=>'user','middleware'=>['auth','user']],function(){
+    // Route::get('/master',[IndexController::class,'master']);
+    // Route::get('/frontent/slider',[IndexController::class,'slider']);
+
+    
+    
     Route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout');
 
     Route::get('/single/product/{id}',[FrontendProduct::class,'singleProduct'])->name('single.product');
@@ -65,41 +66,46 @@ Route::group(['prefix'=>'user'],function(){
     Route::get('/single/product',[SingleProductController::class,'view_product'])->name('view.single.product');
 });
 
-
+// backend
 Route::group(['prefix'=>'admin'],function(){
-    // backend
-    Route::get('/admin/master',[UserController::class,'master']);
-    Route::get('/',[ContentController::class,'dashboard'])->name('admin.dashboard');
-    // product
-    Route::get('/product/list',[ProductController::class,'productlist'])->name('admin.product.list');
-    Route::post('/add/product',[ProductController::class,'addproduct'])->name('admin.add.product');
-    Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
-    Route::get('/product/restore{id}',[ProductController::class,'restore'])->name('product.restore');
-    Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('admin.product.edit');
-    Route::put('/product/update/{id}',[ProductController::class,'update'])->name('admin.product.update');
-    // category
-    Route::get('/category/list',[CategoryController::class,'categorylist'])->name('admin.category.list');
-    Route::post('/add/category',[CategoryController::class,'add'])->name('admin.add.category');
-    Route::get('/delete/category{id}', [CategoryController::class,'delete'])->name('product.category.delete');
-    Route::get('/category/restore/{id}',[CategoryController::class,'restore'])->name('category.restore');
-    Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('admin.category.edit');
-    Route::put('/category/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
+    Route::get('/',[UserController::class,'login'])->name('backend.login');
+    Route::get('/login/post',[UserController::class,'loginPost'])->name('backend.login.post');
 
-    //company
-    Route::get('/company/list',[CompanyController::class,'companyList'])->name('company.list');
-    Route::post('/company/add',[CompanyController::class,'companyAdd'])->name('company.add');
-    Route::get('/company/edit{id}',[CompanyController::class,'companyEdit'])->name('company.edit');
-    Route::put('/company/update{id}',[CompanyController::class,'companyUpdate'])->name('company.update');
-    Route::get('/company/delete/{id}',[CompanyController::class,'companyDelete'])->name('company.delete');
-    Route::get('/company/restore/{id}',[CompanyController::class,'companyRestore'])->name('company.restore');
+    Route::group(['prefix'=>'admin', 'middleware'=>['auth','admin']],function(){
+        
 
-    // stock
-    Route::get('/categoty',[StockController::class,'categoPryList'])->name('category.product');
-    Route::get('category/details/{id}',[StockController::class,'categoryDetails'])->name('category.details');
+        Route::get('/admin/master',[UserController::class,'master']);
+        Route::get('/dashboadr',[ContentController::class,'dashboard'])->name('admin.dashboard');
+        // product
+        Route::get('/product/list',[ProductController::class,'productlist'])->name('admin.product.list');
+        Route::post('/add/product',[ProductController::class,'addproduct'])->name('admin.add.product');
+        Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
+        Route::get('/product/restore{id}',[ProductController::class,'restore'])->name('product.restore');
+        Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('admin.product.edit');
+        Route::put('/product/update/{id}',[ProductController::class,'update'])->name('admin.product.update');
+        // category
+        Route::get('/category/list',[CategoryController::class,'categorylist'])->name('admin.category.list');
+        Route::post('/add/category',[CategoryController::class,'add'])->name('admin.add.category');
+        Route::get('/delete/category{id}', [CategoryController::class,'delete'])->name('product.category.delete');
+        Route::get('/category/restore/{id}',[CategoryController::class,'restore'])->name('category.restore');
+        Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('admin.category.edit');
+        Route::put('/category/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
 
-    //forntend control 
-    Route::get('/slider/contents',[FrontendController::class,'form'])->name('admin.slider.content');
-    Route::post('/slider/contents/add',[FrontendController::class,'contentsAdd'])->name('admin.slider.contents.add');
+        //company
+        Route::get('/company/list',[CompanyController::class,'companyList'])->name('company.list');
+        Route::post('/company/add',[CompanyController::class,'companyAdd'])->name('company.add');
+        Route::get('/company/edit{id}',[CompanyController::class,'companyEdit'])->name('company.edit');
+        Route::put('/company/update{id}',[CompanyController::class,'companyUpdate'])->name('company.update');
+        Route::get('/company/delete/{id}',[CompanyController::class,'companyDelete'])->name('company.delete');
+        Route::get('/company/restore/{id}',[CompanyController::class,'companyRestore'])->name('company.restore');
 
+        // stock
+        Route::get('/categoty',[StockController::class,'categoPryList'])->name('category.product');
+        Route::get('category/details/{id}',[StockController::class,'categoryDetails'])->name('category.details');
+
+        //forntend control 
+        Route::get('/slider/contents',[FrontendController::class,'form'])->name('admin.slider.content');
+        Route::post('/slider/contents/add',[FrontendController::class,'contentsAdd'])->name('admin.slider.contents.add');
+    });
 });
 

@@ -1,5 +1,9 @@
 @extends('frontend.master2')
 
+
+@section('slider')
+    @include('frontend.partials.slider2')
+@endsection
 @section('contents')
     <div class="promo-area">
     <div class="zigzag-bottom"></div>

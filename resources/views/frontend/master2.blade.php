@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ustora Demo - freshDesignweb</title>
+    <title>Medicine Shop</title>
+ 
     
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -48,8 +49,8 @@
             </div> 
             @include('frontend.partials.sidebar2')
             
-            
-            @include('frontend.partials.slider2')
+            @yield('slider')
+            {{-- @include('frontend.partials.slider2') --}}
             
             @yield('contents')
             

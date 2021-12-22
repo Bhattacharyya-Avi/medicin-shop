@@ -20,7 +20,8 @@ class LoginController extends Controller
         $userpost = $request->except('_token');
         // dd($userpost);
         if (Auth::attempt($userpost)) {
-            return redirect()->route('home');
+            // dd(Auth::attempt($userpost));
+           return redirect()->route('home');   
         }
         else {
             return redirect()->route('user.login');

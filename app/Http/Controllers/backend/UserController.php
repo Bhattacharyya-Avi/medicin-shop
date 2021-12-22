@@ -10,4 +10,12 @@ class UserController extends Controller
     public function master(){
         return view('frontend.master');
     }
+
+    public function login(){
+        return view('backend.pages.login.login');
+    }
+
+    public function loginPost(Request $request){
+        dd($request->all());
+    }
 }
