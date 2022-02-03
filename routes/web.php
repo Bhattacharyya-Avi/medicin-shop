@@ -1,16 +1,18 @@
 <?php
 
-use App\Http\Controllers\backend\CategoryController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\backend\CartController;
+use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\StockController;
+use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\ProductController;
-use App\Http\Controllers\backend\UserController;
-use App\Http\Controllers\backend\CartController;
-use App\Http\Controllers\backend\StockController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\frontend\IndexController;
-use App\Http\Controllers\frontend\ProductController as FrontendProduct;
+use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\frontend\SingleProductController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\frontend\ProductController as FrontendProduct;
+use App\Http\Controllers\frontend\UserController as FrontendUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,14 @@ Route::get('/master',[IndexController::class,'master']);
 Route::get('/home',[IndexController::class,'index2'])->name('home');
 Route::get('/single/product/{id}',[FrontendProduct::class,'singleProduct'])->name('single.product');
 // Route::post('/product/add/cart/{id}',[FrontendProduct::class,'addtocart'])->name('product.add.cart');
+Route::get('/user/login',[FrontendUserController::class,'login'])->name('user.login');
+Route::post('/user/login/post',[FrontendUserController::class,'loginPost'])->name('user.login.post');
+Route::get('/user/logout',[FrontendUserController::class,'logout'])->name('user.logout');
+
+Route::get('/user/registration',[FrontendUserController::class,'registration'])->name('user.registration');
+Route::post('/user/registration/post',[FrontendUserController::class,'registrationPost'])->name('user.registration.post');
+
+
 
 //cart
 Route::get('/product/cart',[CartController::class,'cart'])->name('product.cart');
@@ -47,6 +57,19 @@ Route::get('/cart/product/delete/{id}',[CartController::class,'cartDelete'])->na
 
 // single product
 Route::get('/single/product',[SingleProductController::class,'view_product'])->name('view.single.product');
+
+// sslcommerz
+// Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->name('checkout');
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 // backend

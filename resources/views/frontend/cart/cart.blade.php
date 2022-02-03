@@ -100,7 +100,8 @@
                                                     <input type="submit" value="Apply Coupon" name="apply_coupon" class="button">
                                                 </div>
                                                 <a href="{{route('cart.distroy')}}" class="btn btn-danger">Delete Cart</a>
-                                                <a href="#" name="proceed" class="btn btn-primary">Checkout</a>
+                                                
+                                                <a href="{{route('checkout')}}" name="proceed" class="btn btn-primary">Checkout</a>
                                                 <a href="{{route('home')}}" class="btn btn-primary">Continue Shopping</a>
                                             </td>
                                         </tr>

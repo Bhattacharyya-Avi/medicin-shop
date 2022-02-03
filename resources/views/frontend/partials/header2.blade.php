@@ -8,7 +8,16 @@
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                         <li><a href="cart.htm"><i class="fa fa-user"></i> My Cart</a></li>
                         <li><a href="checkout.htm"><i class="fa fa-user"></i> Checkout</a></li>
-                        <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                        @if(auth()->user())
+                        <li>
+                            <ul>
+                                <li><a href="">{{auth()->user()->name}}</a></li>
+                                <li><a href="{{route('user.logout')}}">Logout</a></li>
+                            </ul>
+                        </li>
+                        @else
+                        <li><a href="{{route('user.login')}}"><i class="fa fa-user"></i> Login</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
