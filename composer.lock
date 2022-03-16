@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4842c22e789d247c4b660e69490545f",
+    "content-hash": "13fd639ca7b71be7d215e05700ba6e91",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -121,6 +121,70 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "devfaysal/laravel-muthofun-sms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devfaysal/laravel-muthofun-sms.git",
+                "reference": "883588d6a99f980bb6ef10338e3e6e98e0005829"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devfaysal/laravel-muthofun-sms/zipball/883588d6a99f980bb6ef10338e3e6e98e0005829",
+                "reference": "883588d6a99f980bb6ef10338e3e6e98e0005829",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Devfaysal\\Muthofun\\MuthofunServiceProvider"
+                    ],
+                    "aliases": {
+                        "Muthofun": "Devfaysal\\Muthofun\\Facades\\Muthofun"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Devfaysal\\Muthofun\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Faysal Ahamed",
+                    "email": "hello@faysal.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple Laravel wrapper for MuthoFun SMS Gateway API",
+            "homepage": "https://github.com/devfaysal/laravel-muthofun-sms",
+            "keywords": [
+                "api",
+                "laravel",
+                "muthofun",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/devfaysal/laravel-muthofun-sms/issues",
+                "source": "https://github.com/devfaysal/laravel-muthofun-sms/tree/master"
+            },
+            "time": "2022-02-17T05:14:42+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -7949,12 +8013,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "devfaysal/laravel-muthofun-sms": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
